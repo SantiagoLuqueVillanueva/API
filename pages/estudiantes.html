@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personajes - El mago de las APIs</title>
+    <link rel="stylesheet" href="../estilos.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <h1>El mago de las APIS</h1>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="sobreMi.html">Sobre mí</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h2>Buscador de Personajes por Casa</h2>
+
+        <section class="controles-api">
+            <label for="selector-casa">Elige una casa de Hogwarts:</label>
+            <select id="selector-casa">
+                <option value="gryffindor">Gryffindor</option>
+                <option value="slytherin">Slytherin</option>
+                <option value="hufflepuff">Hufflepuff</option>
+                <option value="ravenclaw">Ravenclaw</option>
+            </select>
+            <button id="btn-buscar-estudiantes" class="boton">Buscar Personajes</button>
+        </section>
+
+        <section id="contenedor-estudiantes" class="cuadricula-resultados">
+            <p>Selecciona una casa y pulsa buscar para ver los personajes.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Proyecto Unidad 04 - Acceso a APIs | Desarrollo de Aplicaciones Multiplataforma | Santiago Luque Villanueva
+        </p>
+    </footer>
+
+    <script src="../js/javaScript.js"></script>
+</body>
+
+</html>
