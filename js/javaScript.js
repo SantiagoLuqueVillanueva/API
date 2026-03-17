@@ -6,13 +6,13 @@
  * obtener estudiantes, profesores y hechizos, manipulando el DOM para mostrarlos.
  */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventtener("DOMContentLoaded", () => {
 
-    const btnEstudiantes = document.querySelector("#btn-buscar-estudiantes");
+    const btnEstudiantes = document.getElementById("btn-buscar-estudiantes");
 
     if (btnEstudiantes) {
-        const selectorCasa = document.querySelector("#selector-casa");
-        const contenedorEstudiantes = document.querySelector("#contenedor-estudiantes");
+        const selectorCasa = document.getElementById("selector-casa");
+        const contenedorEstudiantes = document.getElementById("contenedor-estudiantes");
 
         btnEstudiantes.addEventListener("click", () => {
             contenedorEstudiantes.innerHTML = "<p>Cargando estudiantes...</p>";
@@ -22,14 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             fetch(url)
                 .then(response => {
-                    console.log("Respuesta Estudiantes:", response);
                     if (!response.ok) {
                         throw new Error("Respuesta no OK. Código HTTP: " + response.status);
                     }
                     return response.json();
                 })
                 .then(data => {
-                    console.log("Data Estudiantes: ", data);
                     contenedorEstudiantes.innerHTML = "";
 
                     for (const u of data) {
@@ -37,7 +35,13 @@ document.addEventListener("DOMContentLoaded", () => {
                             const tarjeta = document.createElement("div");
                             tarjeta.className = "tarjeta";
 
-                            const imagenURL = u.image !== "" ? u.image : "../img/hogwarts-fondo.avif";
+                            let imagenURL;
+
+                            if (u.image !== "") {
+                                imagenURL = u.image;
+                            } else {
+                                imagenURL = "../img/hogwarts-fondo.avif";
+                            }
 
                             tarjeta.innerHTML = `
                                 <img src="${imagenURL}" alt="Foto de ${u.name}">
@@ -56,31 +60,35 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    const btnProfesores = document.querySelector("#btn-cargar-profesores");
+    const btnProfesores = document.getElementById("btn-cargar-profesores");
 
     if (btnProfesores) {
-        const contenedorProfesores = document.querySelector("#contenedor-profesores");
+        const contenedorProfesores = document.getElementById("contenedor-profesores");
 
         btnProfesores.addEventListener("click", () => {
             contenedorProfesores.innerHTML = "<p>Convocando al claustro de profesores...</p>";
 
             fetch("https://hp-api.onrender.com/api/characters/staff")
                 .then(response => {
-                    console.log("Respuesta Profesores:", response);
                     if (!response.ok) {
                         throw new Error("Respuesta no OK. Código HTTP: " + response.status);
                     }
                     return response.json();
                 })
                 .then(data => {
-                    console.log("Data Profesores: ", data);
                     contenedorProfesores.innerHTML = "";
 
                     for (const p of data) {
                         const tarjeta = document.createElement("div");
                         tarjeta.className = "tarjeta";
 
-                        const imagenURL = p.image !== "" ? p.image : "../img/hogwarts-fondo.avif";
+                        let imagenURL;
+
+                        if (u.image !== "") {
+                            imagenURL = u.image;
+                        } else {
+                            imagenURL = "../img/hogwarts-fondo.avif";
+                        }
 
                         tarjeta.innerHTML = `
                             <img src="${imagenURL}" alt="Foto de ${p.name}">
@@ -98,10 +106,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    const btnHechizos = document.querySelector("#btn-cargar-hechizos");
+    const btnHechizos = document.getElementById("btn-cargar-hechizos");
 
     if (btnHechizos) {
-        const contenedorHechizos = document.querySelector("#contenedor-hechizos");
+        const contenedorHechizos = document.getElementById("contenedor-hechizos");
 
         btnHechizos.addEventListener("click", () => {
             contenedorHechizos.innerHTML = "<p>Abriendo libro de hechizos...</p>";
@@ -114,7 +122,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     return response.json();
                 })
                 .then(data => {
-                    console.log("Data Hechizos: ", data);
                     contenedorHechizos.innerHTML = "";
 
                     for (const h of data) {
