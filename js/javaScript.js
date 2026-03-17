@@ -6,7 +6,7 @@
  * obtener estudiantes, profesores y hechizos, manipulando el DOM para mostrarlos.
  */
 
-document.addEventtener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
     const btnEstudiantes = document.getElementById("btn-buscar-estudiantes");
 
@@ -84,8 +84,8 @@ document.addEventtener("DOMContentLoaded", () => {
 
                         let imagenURL;
 
-                        if (u.image !== "") {
-                            imagenURL = u.image;
+                        if (p.image !== "") {
+                            imagenURL = p.image;
                         } else {
                             imagenURL = "../img/hogwarts-fondo.avif";
                         }
