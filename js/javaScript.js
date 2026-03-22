@@ -142,3 +142,41 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+
+    const btnBuscador = document.getElementById('btn-buscar-nombre');
+
+    if (btnBuscador) {
+        const contenedorBusqueda = document.getElementById('contenedor-busqueda');
+        const inputNombre = document.getElementById("input-nombre");
+
+        btnBuscador.addEventListener('click', () => {
+            contenedorBusqueda.innerHTML = "<p>Cargando personajes...</p>"
+            const nombre = inputNombre.value.trim().toLowerCase();
+
+            fetch("https://hp-api.onrender.com/api/characters")
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Error al cargar");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    contenedorBusqueda.innerHTML = '';
+                    
+                    for (const h of data) {
+                        if (h.name.toLowerCase().includes(nombre)) {
+                            const tarjeta = document.createElement("div")
+                            tarjeta.className = "tarjeta"
+                            tarjeta.innerHTML = `
+                                <h3>${h.name}</h3>
+                                <p><em>${h.actor}</em></p>
+                            `;
+                            contenedorBusqueda.appendChild(tarjeta)
+                        }
+                    }
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+        })
+    }

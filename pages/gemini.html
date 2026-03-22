@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personajes - El mago de las APIs</title>
+    <link rel="stylesheet" href="../estilos.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <h1>El mago de las APIS</h1>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="sobreMi.html">Sobre mí</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h2>Buscador del Ministerio de Magia</h2>
+        <p>Introduce el nombre exacto o una parte del nombre del personaje que buscas:</p>
+
+        <section class="controles-api">
+            <input type="text" id="input-nombre" placeholder="Ej: Harry, Granger, Sirius..."
+                style="padding: 10px; border-radius: 5px;">
+            <button id="btn-buscar-nombre" class="boton">Buscar en Archivos</button>
+        </section>
+
+        <section id="contenedor-busqueda" class="cuadricula-resultados">
+            <p>Esperando tu búsqueda...</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Proyecto Unidad 04 - Acceso a APIs | Desarrollo de Aplicaciones Multiplataforma | Santiago Luque Villanueva
+        </p>
+    </footer>
+
+    <script src="../js/javaScript.js"></script>
+</body>
+
+</html>
